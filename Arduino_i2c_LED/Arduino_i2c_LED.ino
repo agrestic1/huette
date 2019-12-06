@@ -1,10 +1,12 @@
 #include <Wire.h>
 
 #define adresse 0x05
+#define led_pin 13
 int zahl = 0;
 
+
 void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(led_pin, OUTPUT);
   Serial.begin(9600);
   Wire.begin(adresse);
 
@@ -24,11 +26,12 @@ void empfangeDaten(int byteCount) {
     Serial.print("Daten erhalten: ");
     Serial.println(zahl);
 
-    if (zahl == 1) {
-        digitalWrite(LED_BUILTIN, HIGH);
-    } else {
-        digitalWrite(LED_BUILTIN, LOW);
-    }
+    digitalWrite(led_pin, zahl);
+    // if (zahl == 1) {
+    //     digitalWrite(LED_BUILTIN, HIGH);
+    // } else {
+    //     digitalWrite(LED_BUILTIN, LOW);
+    // }
   }
 }
 

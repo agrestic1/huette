@@ -54,18 +54,24 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght
       {
 
         String text = String((char *) &payload[0]);
-        if (text == "LED1") {
 
+        if (text == "LED1") {
           digitalWrite(LED_BUILTIN, LOW);
           Serial.println("led just lit");
           webSocket.sendTXT(num, "led just lit", lenght);
         }
         if (text == "LED0") {
-
           digitalWrite(LED_BUILTIN, HIGH);
           Serial.println("led just lit");
           webSocket.sendTXT(num, "led just lit", lenght);
         }
+        if(text.startsWith("D")){
+            String xVal=(text.substring(text.indexOf("D")+1,text.length())); // remove D from string
+            int xInt = xVal.toInt();
+            analogWrite(LED_BUILTIN,xInt); 
+            Serial.println(xVal);
+            webSocket.sendTXT(num, "brightness changed", lenght);
+           }
       }
 
 
