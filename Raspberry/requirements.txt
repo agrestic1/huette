@@ -1,0 +1,6 @@
+i2c-bus
+socket.io
+fs
+http
+ws
+express

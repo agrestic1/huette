@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<title>I2C Control</title>
+
+<body>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="lamps.html">Lamps</a></li>
+        <li><a href="#musik">Music</a></li>
+    </ul>
+    <p>&nbsp</p>
+    <div id="ergebnis" class="ergebnis">
+        Arduino Lampe ist <span id="arduino_status">an</span>.
+    </div>
+    <label class="toggle">
+        <input id="arduino_switch" type="checkbox">
+        <span class="roundbutton"></span>
+    </label>
+
+    <div id="ergebnis" class="ergebnis">
+            ESP8266 Lampe ist <span id="ESP_status">an</span>.
+        </div>
+        <label class="toggle">
+            <input id="ESP_switch" type="checkbox">
+            <span class="roundbutton"></span>
+        </label>
+    <!--
+    <button type="button" id="state" onclick="I2C_LED(1)" style="background-color:green;">ON</button>
+    <button type="button" id="state" onclick="I2C_LED(0)" style="background-color:red;">OFF</button>
+    -->
+ <!--    <h2>Control ESP8266@Websocket</h2>
+    <button type="button" id="websocket" onclick="Websocket_LED(1)" style="background-color:green;">ON</button>
+    <button type="button" id="websocket" onclick="Websocket_LED(0)" style="background-color:red;">OFF</button>
+  -->   
+    <script src="socket.io.js"></script> <!-- get it from https://cdnjs.com/libraries/socket.io -->
+    <script src="tools.js"></script>
+</body>
+
+</html>
