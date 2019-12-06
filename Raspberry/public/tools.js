@@ -12,11 +12,11 @@ var arduino_input = document.getElementById('arduino_switch');
 var arduino_outputtext = document.getElementById('arduino_status');
 
 arduino_input.addEventListener('change', function() {
-    if (this.checked) {
-        socket.emit("state", 200); //send button state to server
+    if(this.checked) {
+        socket.emit("state", 1); //send button state to server
         arduino_outputtext.innerHTML = "an";
     } else {
-        socket.emit("state", 5); //send button state to server
+        socket.emit("state", 0); //send button state to server
         arduino_outputtext.innerHTML = "aus";
     }
 });
@@ -41,6 +41,7 @@ var output = document.getElementById("demo");
 output.innerHTML = slider.value;
 
 slider.oninput = function() {
+    ESP_input.checked = true;
     output.innerHTML = this.value;
     socket.emit("websocket", "D" + this.value); //send button state to server
 }
