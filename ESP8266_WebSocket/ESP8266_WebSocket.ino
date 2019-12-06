@@ -4,6 +4,9 @@
 #include <ESP8266mDNS.h>
 #include <WebSocketsServer.h> // requires WebSocket package by Markus Sattler
 #include "privates.h" // conrains your WiFi SSID and PW, must be adjusted
+// content of privates.h:
+// const char* ssid = "yourSSID";
+// const char* password = "yourPW";
 
 WebSocketsServer webSocket = WebSocketsServer(81);
 
